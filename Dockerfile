@@ -2,14 +2,12 @@ FROM node:12.19
 RUN useradd --user-group --create-home --shell /bin/false app
 
 ENV HOME=/home/app/
-WORKDIR $HOME/traffik
+WORKDIR $HOME
 
-COPY package*.json $HOME/traffik/
+COPY package*.json $HOME
+# COPY . $HOME/traffik
 
-RUN npm i --verbose
-
-COPY . $HOME/traffik
-
-RUN chown -R app:app $HOME/*
+# RUN npx create-react-app traffik --template typescript
+# RUN chown -R app:app $HOME/*
 
 # CMD ["tail", "f", "/dev/null"]
