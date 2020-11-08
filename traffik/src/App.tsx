@@ -1,12 +1,20 @@
 import React from 'react';
 import Header from "./components/Header"
-import './App.css';
+import Summary from "./components/Summary";
+import styled from "styled-components";
+
+const AppContainer = styled.div`
+  text-align: center;
+  height: 800px;
+
+`
+
 
 export default function App(): JSX.Element {
   return (
-    <div className="App">
+    <AppContainer>
       <Header />
-
-    </div>
+      <Summary />
+    </AppContainer>
   );
 }
