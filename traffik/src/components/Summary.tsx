@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-type CircleType = "domestic" | "isp";
+type CircleType = "domestic" | "isp" | "foreign"
 
 const SummaryContainer = styled.div`
     width: 800px;
@@ -11,11 +11,17 @@ const SummaryContainer = styled.div`
     padding: 10px;
 `;
 
-const Circle = styled.circle<{type: CircleType}>`
+const Ellipse = styled.ellipse<{type: CircleType}>`
     fill: ${
-        ({type}) => type === "domestic" ?
-            `rgba(100, 200, 140, 1)` :
-            `rgba(200, 10, 100, 1)`
+        ({type}) => {
+            if(type === "foreign") {
+                return `rgba(200, 200, 40, 1)`;
+            } else if (type === "isp") {
+                return `rgba(220, 10, 100, 1)`;
+            } else {
+                return `rgba(200, 150, 40, 1)`;
+            }
+        }
     };
     stroke: none;
 `;
@@ -25,9 +31,15 @@ export default function Summary() {
     return (
         <SummaryContainer>
             <svg viewBox="0 0 800 600">
-                <g fill="#c33" stroke="#822" stroke-width="2">
-                    <Circle type="domestic" id="circle_domestic" cx="60" cy="60" r="50" />
-                    <Circle type="isp" cx="200" cy="200" r="50" />
+                <g>
+                    <g>
+                        <Ellipse type="foreign" id="ellipse_foreign" cx="100" cy="100" rx="80" ry="70" />
+                        <text x="100" y="100" text-anchor="middle">
+                            aaaaaaaaaaaaaa
+                        </text>
+                    </g>
+                    <Ellipse type="isp" id="ellipse_isp" cx="300" cy="300" rx="80" ry="70" />
+                    <Ellipse type="domestic" id="ellipse_domestic" cx="500" cy="100" rx="80" ry="70" />
                 </g>
             </svg>
         </SummaryContainer>
