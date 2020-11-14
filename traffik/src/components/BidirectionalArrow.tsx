@@ -22,9 +22,20 @@ const ArrowContainer = styled.div<{degree: number}>`
         left:80px;
         top:-30px;
     }
+    &:after {
+        /*modify border and top property to change arrow head size*/
+        position: absolute;
+        content: "";
+        width: 0;
+        height:0;
+        border:50px solid transparent;
+        border-right: 50px solid #5bc0de; /*height of arrow head*/
+        right:80px;
+        top:-30px;
+    }
 `;
 
-export default function Arrow({degree}): React.FC<number> {
+export default function BidirectionalArrow({degree}): React.FC<number> {
     return (
         <ArrowContainer degree={degree}></ArrowContainer>
 
