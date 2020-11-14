@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const ArrowContainer = styled.div<{degree: number}>`
+type parms = {
+    x: number
+    y: number
+    degree: number
+}
+
+const Arrow = styled.div<{degree: number}>`
     & {
         display: inline-block;
         height: 40px;
@@ -24,9 +30,17 @@ const ArrowContainer = styled.div<{degree: number}>`
     }
 `;
 
-export default function Arrow({degree}): React.FC<number> {
+const ArrowContainer = styled.div<{x: number, y:number}>`
+    position: absolute;
+    left: ${({x}) => x}px;
+    top: ${({y}) => y}px;
+`;
+
+export default function UnidirectionalArrow({...parms}): React.FC<parms> {
     return (
-        <ArrowContainer degree={degree}></ArrowContainer>
+        <ArrowContainer x={parms.x} y={parms.y}>
+            <Arrow degree={parms.degree}></Arrow>
+        </ArrowContainer>
 
     )
 }

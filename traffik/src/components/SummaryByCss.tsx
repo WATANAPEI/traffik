@@ -12,28 +12,19 @@ const SummaryContainer = styled.div`
     position: relative;
 `;
 
-const CircleContainer = styled.div`
+const CircleContainer = styled.div<{x: number, y: number}>`
     position: absolute;
-    left:30px;
-    top: 20px;
+    left: ${({x}) => x}px;
+    top: ${({y}) => y}px;
 `;
-
-const BidirectionalArrowContainer = styled.div`
-    position: absolute;
-    left: 150px;
-    top: 130px;
-`;
-
 
 export default function Summary(): React.FC {
     return (
         <SummaryContainer>
-            <CircleContainer>
-                <Circle />
+            <CircleContainer x={30} y={20}>
+                <Circle text="国内"/>
             </CircleContainer>
-            <BidirectionalArrowContainer>
-                <BidirectionalArrow degree={-135} />
-            </BidirectionalArrowContainer>
+            <BidirectionalArrow x={120} y={300} degree={-135} />
         </SummaryContainer>
     );
 }

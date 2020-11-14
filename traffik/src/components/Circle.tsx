@@ -6,12 +6,15 @@ const CircleDiv = styled.div`
     height: 100px;
     border-radius: 50%;
     background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 
-export default function Circle() {
+export default function Circle({text}): React.FC<string|null> {
     return (
-        <CircleDiv></CircleDiv>
+        <CircleDiv>{text}</CircleDiv>
     )
 
 }
