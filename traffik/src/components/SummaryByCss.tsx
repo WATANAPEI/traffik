@@ -21,9 +21,7 @@ const CircleContainer = styled.div<{x: number, y: number}>`
 export default function Summary(): React.FC {
     return (
         <SummaryContainer>
-            <CircleContainer x={30} y={20}>
-                <Circle text="国内"/>
-            </CircleContainer>
+            <Circle x={100} y={30} text="国内" />
             <BidirectionalArrow x={120} y={300} degree={-135} />
         </SummaryContainer>
     );
