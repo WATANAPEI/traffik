@@ -5,6 +5,7 @@ type parms = {
     x: number
     y: number
     degree: number
+    text: string | null
 }
 
 const Arrow = styled.div<{degree: number}>`
@@ -47,10 +48,21 @@ const BidirectionalArrowContainer = styled.div<{x: number, y:number}>`
     top: ${({y}) => y}px;
 `;
 
+const TextContainer = styled.p`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+`;
+
 export default function BidirectionalArrow({...parms}): React.FC<parms> {
     return (
         <BidirectionalArrowContainer x={parms.x} y={parms.y}>
-            <Arrow degree={parms.degree}></Arrow>
+            <Arrow degree={parms.degree}>
+                <TextContainer>
+                    {parms.text}
+                </TextContainer>
+            </Arrow>
         </BidirectionalArrowContainer>
 
     )
