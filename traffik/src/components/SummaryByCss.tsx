@@ -2,12 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BidirectionalArrow from "./BidirectionalArrow";
 import Circle from "./Circle";
-
-type parms = {
-    url: string
-    x: number
-    y: number
-}
+import Picture from "./Picture";
 
 const SummaryContainer = styled.div`
     width: 800px;
@@ -17,18 +12,6 @@ const SummaryContainer = styled.div`
     padding: 10px;
     position: relative;
 `;
-
-const Picture = styled.div<{url: string, x: number, y: number}>`
-    background-image: url("${({url}) => url}");
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: 2px solid #222;
-    position: absolute;
-    width: 150px;
-    height: 120px;
-    top: ${({y}) => y}px;
-    left: ${({x}) => x}px;
-`
 
 export default function Summary(): React.FC {
     return (
