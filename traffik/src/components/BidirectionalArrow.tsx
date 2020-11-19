@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import Modal from "react-modal";
 
 type parms = {
     x: number
@@ -7,6 +8,17 @@ type parms = {
     degree: number
     text: string | null
 }
+
+const customStyles = {
+    content: {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)"
+    }
+};
 
 const Arrow = styled.div<{degree: number}>`
     & {
@@ -46,6 +58,7 @@ const BidirectionalArrowContainer = styled.div<{x: number, y:number}>`
     position: absolute;
     left: ${({x}) => x}px;
     top: ${({y}) => y}px;
+    cursor: pointer;
 `;
 
 const TextContainer = styled.p`
@@ -55,15 +68,39 @@ const TextContainer = styled.p`
 
 `;
 
-export default function BidirectionalArrow({...parms}): React.FC<parms> {
-    return (
-        <BidirectionalArrowContainer x={parms.x} y={parms.y}>
-            <Arrow degree={parms.degree}>
-                <TextContainer>
-                    {parms.text}
-                </TextContainer>
-            </Arrow>
-        </BidirectionalArrowContainer>
+Modal.setAppElement("#root");
 
+export default function BidirectionalArrow({...parms}): React.FC<parms> {
+    const [modalIsOpen, setIsOpen] = useState(false);
+    function openModal() {
+        setIsOpen(true);
+    }
+    function afterOpenModal() {
+        console.log("opened modal.");
+    }
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+
+    return (
+        <div>
+            <BidirectionalArrowContainer x={parms.x} y={parms.y} onClick={openModal}>
+                <Arrow degree={parms.degree}>
+                    <TextContainer>
+                        {parms.text}
+                    </TextContainer>
+                </Arrow>
+            </BidirectionalArrowContainer>
+            <Modal
+                isOpen={modalIsOpen}
+                onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                contentLabel="Example Modal"
+            >
+                <h2>Hello</h2>
+                <button onClick={closeModal}>close</button>
+            </Modal>
+        </div>
     )
 }

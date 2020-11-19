@@ -12,7 +12,7 @@ const AppContainer = styled.div`
 
 export default function App(): JSX.Element {
   return (
-    <AppContainer>
+    <AppContainer id="app">
       <Header />
       <SummaryByCss />
     </AppContainer>
