@@ -4,6 +4,7 @@ import {ReactComponent as ArrowHead} from "../svg/arrowhead.svg";
 import {ReactComponent as ArrowTail} from "../svg/arrowhead.svg";
 import styled from "styled-components";
 import Modal from "react-modal";
+import SampleLine from "./TestGraph";
 
 type types = {
     x: number
@@ -38,7 +39,7 @@ const ArrowContainer = styled.div<types>`
 
 Modal.setAppElement("#root");
 
-export default function Arrow({...types}): React.FC<types> {
+export default function Arrow({...types}) {
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);
@@ -64,9 +65,11 @@ export default function Arrow({...types}): React.FC<types> {
                 contentLabel="Example Modal"
             >
                 <h2>Hello</h2>
+                <SampleLine width={300} height={300}></SampleLine>
                 <button onClick={closeModal}>close</button>
             </Modal>
         </div>
     );
+
 
 }

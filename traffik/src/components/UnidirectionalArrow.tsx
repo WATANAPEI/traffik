@@ -36,7 +36,7 @@ const ArrowContainer = styled.div<{x: number, y:number}>`
     top: ${({y}) => y}px;
 `;
 
-export default function UnidirectionalArrow({...parms}): React.FC<parms> {
+export default function UnidirectionalArrow({...parms}: parms) {
     return (
         <ArrowContainer x={parms.x} y={parms.y}>
             <Arrow degree={parms.degree}></Arrow>

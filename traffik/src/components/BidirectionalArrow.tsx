@@ -59,7 +59,7 @@ const TextContainer = styled.p`
 
 Modal.setAppElement("#root");
 
-export default function BidirectionalArrow({...parms}): React.FC<parms> {
+export default function BidirectionalArrow({...parms}: parms) {
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);

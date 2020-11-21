@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-type props = {
+type parms = {
     x: number
     y: number
     text: string | null
@@ -23,7 +23,7 @@ const CircleContainer = styled.div<{x: number, y: number}>`
 `;
 
 
-export default function Circle({...props}): React.FC<props> {
+export default function Circle({...props}: parms) {
     return (
         <CircleContainer x={props.x} y={props.y}>
             <CircleDiv>{props.text}</CircleDiv>

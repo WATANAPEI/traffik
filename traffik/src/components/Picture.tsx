@@ -19,7 +19,7 @@ const PictureContainer = styled.div<{url: string, x: number, y: number}>`
     left: ${({x}) => x}px;
 `
 
-export default function Picture({...props}): React.FC<parms> {
+export default function Picture({...props}: parms) {
     return (
             <PictureContainer url={props.url} x={props.x} y={props.y}/>
     );

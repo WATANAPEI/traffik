@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import BidirectionalArrow from "./BidirectionalArrow";
 import Circle from "./Circle";
 import Picture from "./Picture";
 import Arrow from "./Arrow";
@@ -14,7 +13,7 @@ const SummaryContainer = styled.div`
     position: relative;
 `;
 
-export default function Summary(): React.FC {
+export default function Summary() {
     return (
         <SummaryContainer>
             <Circle x={50} y={50} text="国内" />
