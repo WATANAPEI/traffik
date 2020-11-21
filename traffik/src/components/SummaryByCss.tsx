@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BidirectionalArrow from "./BidirectionalArrow";
 import Circle from "./Circle";
 import Picture from "./Picture";
+import Arrow from "./Arrow";
 
 const SummaryContainer = styled.div`
     width: 800px;
@@ -21,10 +22,17 @@ export default function Summary(): React.FC {
             <Circle x={400} y={50} text="国外" />
             <Picture url="a1.png" x={50} y={450}/>
             <Picture url="a2.png" x={400} y={450}/>
+            <Arrow x={100} y={120} degree={-45}/>
+            <Arrow x={350} y={120} degree={45}/>
+            <Arrow x={190} y={310} degree={45}/>
+            <Arrow x={270} y={310} degree={-45}/>
+            {/*
             <BidirectionalArrow x={150} y={130} degree={45} text="B3" />
             <BidirectionalArrow x={330} y={130} degree={-45} text="B2" />
             <BidirectionalArrow x={150} y={330} degree={-45} text="A1" />
             <BidirectionalArrow x={330} y={330} degree={45} text="A2" />
+            */}
+
         </SummaryContainer>
     );
 }
