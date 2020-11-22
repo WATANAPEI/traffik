@@ -17,14 +17,14 @@ export default function Summary() {
     return (
         <SummaryContainer>
             <Circle x={50} y={50} text="国内" />
-            <Circle x={230} y={230} text="ISP" />
-            <Circle x={400} y={50} text="国外" />
+            <Circle x={250} y={230} text="ISP" />
+            <Circle x={450} y={50} text="国外" />
             <Picture url="a1.png" x={50} y={450}/>
-            <Picture url="a2.png" x={400} y={450}/>
-            <Arrow x={100} y={120} degree={-45}/>
-            <Arrow x={350} y={120} degree={45}/>
-            <Arrow x={190} y={310} degree={45}/>
-            <Arrow x={270} y={310} degree={-45}/>
+            <Picture url="a2.png" x={430} y={450}/>
+            <Arrow x={100} y={120} deg={-45} text="B3"/>
+            <Arrow x={300} y={200} deg={-135} text="B2"/>
+            <Arrow x={110} y={400} deg={-135} text="A2"/>
+            <Arrow x={310} y={310} deg={-46} text="A3"/>
             {/*
             <BidirectionalArrow x={150} y={130} degree={45} text="B3" />
             <BidirectionalArrow x={330} y={130} degree={-45} text="B2" />

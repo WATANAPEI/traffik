@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {ReactComponent as ArrowBar} from "../svg/arrowbar.svg";
 import {ReactComponent as ArrowHead} from "../svg/arrowhead.svg";
 import {ReactComponent as ArrowTail} from "../svg/arrowhead.svg";
 import styled from "styled-components";
@@ -10,16 +9,20 @@ type types = {
     x: number
     y: number
     deg: number
+    text: string
 }
 
 const ArrowHeadStyle = styled(ArrowHead)`
     cursor: pointer;
 `
 
-const ArrowBarStyle = styled(ArrowBar)`
+//Load Svg files to render arrowbar with required text
+const ArrowBarStyle = styled.svg<{text: string}>`
     position: absolute;
     left: 30px;
     top: 45px;
+    background-image: url(./arrowbar_${({text}) => text}.svg);
+    background-repeat: no-repeat;
 `
 
 const ArrowTailStyle = styled(ArrowTail)`
@@ -30,7 +33,7 @@ const ArrowTailStyle = styled(ArrowTail)`
     cursor: pointer;
 `
 
-const ArrowContainer = styled.div<types>`
+const ArrowContainer = styled.div<{x: number, y: number, deg: number}>`
     position: absolute;
     left: ${({x}) => x}px;
     top: ${({y}) => y}px;
@@ -39,7 +42,7 @@ const ArrowContainer = styled.div<types>`
 
 Modal.setAppElement("#root");
 
-export default function Arrow({...types}) {
+export default function Arrow({...types}: types) {
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);
@@ -53,9 +56,9 @@ export default function Arrow({...types}) {
 
     return (
         <div>
-            <ArrowContainer x={types.x} y={types.y} deg={types.degree}>
+            <ArrowContainer x={types.x} y={types.y} deg={types.deg}>
                 <ArrowHeadStyle onClick={openModal}/>
-                <ArrowBarStyle />
+                <ArrowBarStyle text={types.text}/>
                 <ArrowTailStyle onClick={openModal}/>
             </ArrowContainer>
             <Modal
