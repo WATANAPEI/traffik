@@ -1,9 +1,7 @@
-import React, {useState} from "react";
-import {ReactComponent as ArrowHead} from "../svg/arrowhead.svg";
-import {ReactComponent as ArrowTail} from "../svg/arrowhead.svg";
+import React from "react";
 import styled from "styled-components";
-import Modal from "react-modal";
-import SampleLine from "./TestGraph";
+import ReactTooltip from "react-tooltip";
+import {ArrowHead} from "./ArrowHead";
 
 type types = {
     x: number
@@ -11,10 +9,6 @@ type types = {
     deg: number
     text: string
 }
-
-const ArrowHeadStyle = styled(ArrowHead)`
-    cursor: pointer;
-`
 
 //Load Svg files to render arrowbar with required text
 const ArrowBarStyle = styled.svg<{text: string}>`
@@ -25,14 +19,6 @@ const ArrowBarStyle = styled.svg<{text: string}>`
     background-repeat: no-repeat;
 `
 
-const ArrowTailStyle = styled(ArrowTail)`
-    position: absolute;
-    transform: rotate(180deg);
-    left: -2px;
-    top: ${100+30}px;
-    cursor: pointer;
-`
-
 const ArrowContainer = styled.div<{x: number, y: number, deg: number}>`
     position: absolute;
     left: ${({x}) => x}px;
@@ -40,38 +26,24 @@ const ArrowContainer = styled.div<{x: number, y: number, deg: number}>`
     transform: rotate(${({deg}) => deg}deg);
 `
 
-Modal.setAppElement("#root");
+const StyledTooltip = styled(ReactTooltip)`
+
+    max-width: 100px;
+    white-space: normal;
+`
+
 
 export default function Arrow({...types}: types) {
-    const [modalIsOpen, setIsOpen] = useState(false);
-    function openModal() {
-        setIsOpen(true);
-    }
-    function afterOpenModal() {
-        console.log("opened modal.");
-    }
-    function closeModal() {
-        setIsOpen(false);
-    }
+    const Tooltip = ({ ...props }) => (
+        <StyledTooltip effect="solid" multiline place="top" {...props} />
+    )
 
     return (
-        <div>
-            <ArrowContainer x={types.x} y={types.y} deg={types.deg}>
-                <ArrowHeadStyle onClick={openModal}/>
-                <ArrowBarStyle text={types.text}/>
-                <ArrowTailStyle onClick={openModal}/>
-            </ArrowContainer>
-            <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                contentLabel="Example Modal"
-            >
-                <h2>Hello</h2>
-                <SampleLine width={300} height={300}></SampleLine>
-                <button onClick={closeModal}>close</button>
-            </Modal>
-        </div>
+        <ArrowContainer x={types.x} y={types.y} deg={types.deg}>
+            <ArrowHead headType="head" />
+            <ArrowBarStyle text={types.text}/>
+            <ArrowHead headType="tail"/>
+        </ArrowContainer>
     );
 
 
