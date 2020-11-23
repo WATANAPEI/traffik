@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ReactTooltip from "react-tooltip";
 import {ArrowHead} from "./ArrowHead";
 
 type types = {
@@ -26,17 +25,7 @@ const ArrowContainer = styled.div<{x: number, y: number, deg: number}>`
     transform: rotate(${({deg}) => deg}deg);
 `
 
-const StyledTooltip = styled(ReactTooltip)`
-
-    max-width: 100px;
-    white-space: normal;
-`
-
-
 export default function Arrow({...types}: types) {
-    const Tooltip = ({ ...props }) => (
-        <StyledTooltip effect="solid" multiline place="top" {...props} />
-    )
 
     return (
         <ArrowContainer x={types.x} y={types.y} deg={types.deg}>

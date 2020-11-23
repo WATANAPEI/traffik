@@ -3,6 +3,12 @@ import {ReactComponent as Head} from "../svg/arrowhead.svg";
 import styled from "styled-components";
 import Modal from "react-modal";
 import SampleLine from "./TestGraph";
+//import ReactTooltip from "react-tooltip";
+
+// const StyledTooltip = styled(ReactTooltip)`
+//     max-width: 100px;
+//     white-space: normal;
+// `
 
 const ArrowHeadStyle = styled(Head)`
     cursor: pointer;
@@ -36,10 +42,14 @@ export function ArrowHead(prop: types) {
         setIsOpen(false);
     }
 
+    // const Tooltip = ({ ...props }) => (
+    //     <ReactTooltip effect="solid" place="top" {...props} />
+    // )
+
     return (
         <div>
             {prop.headType === "head"
-                ? <ArrowHeadStyle onClick={openModal} />
+                ? <ArrowHeadStyle onClick={openModal} data-for="test"/>
                 : <ArrowTailStyle onClick={openModal} />}
             <Modal
                 isOpen={modalIsOpen}
