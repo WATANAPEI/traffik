@@ -39,14 +39,7 @@ const SampleLine = (props: SamplePropsTypes) => {
         <div>
             React Vis Test
             <XYPlot width={props.width} height={props.height} {...{xDomain, yDomain}}>
-                <HorizontalGridLines />
-                {!verticalTickValues || verticalTickValues.length ? (
-                    <VerticalGridLines tickValues={verticalTickValues} />
-                ) : null}
-                {!horizontalTickValues || horizontalTickValues.length ? (
-                    <HorizontalGridLines tickValues={horizontalTickValues} />
-                ) : null}
-                <LineSeries data={data}/>
+                <LineSeries data={data} style={{fill: "none"}}/>
                 <XAxis title="X" />
                 <YAxis title="Y" />
             </XYPlot>

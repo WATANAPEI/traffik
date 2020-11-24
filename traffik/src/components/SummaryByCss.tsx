@@ -23,8 +23,8 @@ export default function Summary() {
             <Picture url="a2.png" x={430} y={450}/>
             <Arrow x={100} y={120} deg={-45} text="B3"/>
             <Arrow x={300} y={200} deg={-135} text="B2"/>
-            <Arrow x={110} y={400} deg={-135} text="A2"/>
-            <Arrow x={310} y={310} deg={-46} text="A3"/>
+            <Arrow x={110} y={400} deg={-135} text="A1"/>
+            <Arrow x={310} y={310} deg={-46} text="A2"/>
             {/*
             <BidirectionalArrow x={150} y={130} degree={45} text="B3" />
             <BidirectionalArrow x={330} y={130} degree={-45} text="B2" />
