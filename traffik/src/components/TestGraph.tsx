@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { XYPlot, XAxis, YAxis, LineMarkSeries} from "react-vis";
+import { XYPlot, XAxis, YAxis, LineMarkSeries
+, VerticalGridLines, HorizontalGridLines} from "react-vis";
 
 // FIXME: modal style might affect react-vis style.
 type SamplePropsTypes = {
@@ -8,6 +9,9 @@ type SamplePropsTypes = {
 }
 
 const SampleLine = (props: SamplePropsTypes) => {
+
+    let yDomain = [0, 1000];
+
 
     const [data, setData] = useState<any[]>();
     useEffect(() => {
@@ -28,10 +32,14 @@ const SampleLine = (props: SamplePropsTypes) => {
     return (
         <div>
             React Vis Test
-            <XYPlot width={props.width} height={props.height} xType="ordinal" yType="ordinal">
+            <XYPlot width={props.width} height={props.height} xType="ordinal" yDomain={yDomain}>
+                <VerticalGridLines />
+                <HorizontalGridLines />
+                <XAxis
+                    title="X"
+                    style={{fontSize: 10}}/>
+                <YAxis title="Y" style={{fontSize: 10}}/>
                 <LineMarkSeries data={data} style={{fill: "none"}}/>
-                <XAxis title="X" />
-                <YAxis title="Y" />
             </XYPlot>
         </div>
     );

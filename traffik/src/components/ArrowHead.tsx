@@ -58,7 +58,7 @@ export function ArrowHead(prop: types) {
                 contentLabel="Example Modal"
             >
                 <h2>Hello</h2>
-                <SampleLine width={300} height={300}></SampleLine>
+                <SampleLine width={1200} height={500}></SampleLine>
                 <button onClick={closeModal}>close</button>
             </Modal>
         </div>
