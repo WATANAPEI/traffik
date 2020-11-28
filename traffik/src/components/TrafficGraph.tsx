@@ -18,30 +18,46 @@ type GraphPropType = {
 
 const GraphPanel = (props: GraphPropType) => {
 
-    let yDomain = [0, 1000];
-
-
     const [data, setData] = useState<any>(null);
     useEffect(() => {
+        console.log("useEffect invoked.");
         const getData = async () => {
             const res = await fetch("./data.json");
             const json = await res.json();
             const X: string[] = json[props.dataType][props.ioType]["time"];
             const Y: number[] = json[props.dataType][props.ioType]["value"];
-            const description: string|null = json[props.dataType][props.ioType]["description"];
+            const title: string|null = json[props.dataType][props.ioType]["title"];
             let result: {x: string, y: number}[] = [];
             for(let i=0;i < X.length; i++) {
                 result.push({x: X[i], y: Y[i]});
             }
-            setData({result, description});
+            setData({result, title});
         }
         getData();
     }, []);
 
+    const maxY = (dataList?: {x: string, y: number}[]) => {
+        let max: number = 1000;
+        if(dataList === undefined||null) {
+            return 1000;
+        }
+        for(let e of dataList) {
+            if(e.y > max) {
+                max = e.y;
+            }
+        }
+        return max;
+    }
+
     return (
         <div>
-            {data?.description}
-            <XYPlot width={props.width} height={props.height} xType="ordinal" yDomain={yDomain}>
+            {data?.title}
+            <XYPlot
+                width={props.width}
+                height={props.height}
+                xType="ordinal"
+                yDomain={[0, maxY(data?.result)]}
+            >
                 <VerticalGridLines />
                 <HorizontalGridLines />
                 <XAxis
@@ -53,4 +69,4 @@ const GraphPanel = (props: GraphPropType) => {
         </div>
     );
 }
-export default GraphPanel;
+export default GraphPanel
