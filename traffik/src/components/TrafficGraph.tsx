@@ -3,35 +3,44 @@ import { XYPlot, XAxis, YAxis, LineMarkSeries
 , VerticalGridLines, HorizontalGridLines} from "react-vis";
 
 // FIXME: modal style might affect react-vis style.
-type SamplePropsTypes = {
+type GraphPropType = {
     width: number
-    height: number;
+    height: number
+    dataType: string
+    ioType: string
 }
 
-const SampleLine = (props: SamplePropsTypes) => {
+// type dataType = {
+//     time: string[]
+//     value: number[]
+//     description?: string
+// }
+
+const GraphPanel = (props: GraphPropType) => {
 
     let yDomain = [0, 1000];
 
 
-    const [data, setData] = useState<any[]>();
+    const [data, setData] = useState<any>(null);
     useEffect(() => {
         const getData = async () => {
             const res = await fetch("./data.json");
             const json = await res.json();
-            const X_A1: string[] = json["A1"]["in"]["time"];
-            const Y_A1: number[] = json["A1"]["in"]["value"];
+            const X: string[] = json[props.dataType][props.ioType]["time"];
+            const Y: number[] = json[props.dataType][props.ioType]["value"];
+            const description: string|null = json[props.dataType][props.ioType]["description"];
             let result: {x: string, y: number}[] = [];
-            for(let i=0;i < X_A1.length; i++) {
-                result.push({x: X_A1[i], y: Y_A1[i]});
+            for(let i=0;i < X.length; i++) {
+                result.push({x: X[i], y: Y[i]});
             }
-            setData(result);
+            setData({result, description});
         }
         getData();
     }, []);
 
     return (
         <div>
-            React Vis Test
+            {data?.description}
             <XYPlot width={props.width} height={props.height} xType="ordinal" yDomain={yDomain}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
@@ -39,9 +48,9 @@ const SampleLine = (props: SamplePropsTypes) => {
                     title="X"
                     style={{fontSize: 10}}/>
                 <YAxis title="Y" style={{fontSize: 10}}/>
-                <LineMarkSeries data={data} style={{fill: "none"}}/>
+                <LineMarkSeries data={data?.result} style={{fill: "none"}}/>
             </XYPlot>
         </div>
     );
 }
-export default SampleLine;
+export default GraphPanel;

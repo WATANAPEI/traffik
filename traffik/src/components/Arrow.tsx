@@ -6,7 +6,7 @@ type types = {
     x: number
     y: number
     deg: number
-    text: string
+    dataType: string
 }
 
 //Load Svg files to render arrowbar with required text
@@ -29,9 +29,9 @@ export default function Arrow({...types}: types) {
 
     return (
         <ArrowContainer x={types.x} y={types.y} deg={types.deg}>
-            <ArrowHead headType="head" />
-            <ArrowBarStyle text={types.text}/>
-            <ArrowHead headType="tail"/>
+            <ArrowHead headType="head" dataType={types.dataType} ioType="in"/>
+            <ArrowBarStyle text={types.dataType}/>
+            <ArrowHead headType="tail" dataType={types.dataType} ioType="out"/>
         </ArrowContainer>
     );
 

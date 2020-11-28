@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {ReactComponent as Head} from "../svg/arrowhead.svg";
 import styled from "styled-components";
 import Modal from "react-modal";
-import SampleLine from "./TestGraph";
+import GraphPanel from "./TrafficGraph";
 //import ReactTooltip from "react-tooltip";
 
 // const StyledTooltip = styled(ReactTooltip)`
@@ -26,6 +26,8 @@ type HeadType = "head"|"tail";
 
 type types = {
     headType: HeadType
+    dataType: string
+    ioType: string
 };
 
 Modal.setAppElement("#root");
@@ -57,8 +59,7 @@ export function ArrowHead(prop: types) {
                 onRequestClose={closeModal}
                 contentLabel="Example Modal"
             >
-                <h2>Hello</h2>
-                <SampleLine width={1200} height={500}></SampleLine>
+                <GraphPanel width={1200} height={500} dataType={prop.dataType} ioType={prop.ioType}></GraphPanel>
                 <button onClick={closeModal}>close</button>
             </Modal>
         </div>
