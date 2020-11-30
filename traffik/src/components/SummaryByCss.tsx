@@ -21,9 +21,9 @@ export default function Summary() {
             <Circle x={450} y={50} text="国外" />
             <Picture url="a1.png" x={50} y={450}/>
             <Picture url="a2.png" x={430} y={450}/>
-            <Arrow x={100} y={120} deg={-45} dataType="B3"/>
+            <Arrow x={190} y={215} deg={135} dataType="B3"/>
             <Arrow x={300} y={200} deg={-135} dataType="B2"/>
-            <Arrow x={110} y={400} deg={-135} dataType="A1"/>
+            <Arrow x={200} y={310} deg={45} dataType="A1"/>
             <Arrow x={310} y={310} deg={-46} dataType="A2"/>
             {/*
             <BidirectionalArrow x={150} y={130} degree={45} text="B3" />
