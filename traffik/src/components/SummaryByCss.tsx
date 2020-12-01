@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Circle from "./Circle";
 import Picture from "./Picture";
 import Arrow from "./Arrow";
+import Hexagon from "./Hexagon";
 
 const SummaryContainer = styled.div`
     width: 800px;
@@ -16,21 +17,16 @@ const SummaryContainer = styled.div`
 export default function Summary() {
     return (
         <SummaryContainer>
-            <Circle x={50} y={50} text="国内" />
-            <Circle x={250} y={230} text="ISP" />
-            <Circle x={450} y={50} text="国外" />
+            <Circle x={50} y={50} r={100} text="国内" color="#FFFF88"/>
+            <Circle x={230} y={220} r={140} text="ISP" color="#CCCCFF"/>
+            <Circle x={450} y={50} r={100} text="国外" color="#FFAD90"/>
             <Picture url="a1.png" x={50} y={450}/>
             <Picture url="a2.png" x={430} y={450}/>
             <Arrow x={190} y={215} deg={135} dataType="B3"/>
-            <Arrow x={300} y={200} deg={-135} dataType="B2"/>
+            <Arrow x={300} y={210} deg={-135} dataType="B2"/>
             <Arrow x={200} y={310} deg={45} dataType="A1"/>
             <Arrow x={310} y={310} deg={-46} dataType="A2"/>
-            {/*
-            <BidirectionalArrow x={150} y={130} degree={45} text="B3" />
-            <BidirectionalArrow x={330} y={130} degree={-45} text="B2" />
-            <BidirectionalArrow x={150} y={330} degree={-45} text="A1" />
-            <BidirectionalArrow x={330} y={330} degree={45} text="A2" />
-            */}
+            <Hexagon />
 
         </SummaryContainer>
     );

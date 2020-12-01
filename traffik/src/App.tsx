@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "./components/Header"
-//import Summary from "./components/Summary";
 import styled from "styled-components";
-//import Arrow from "./components/Arrow";
 import SummaryByCss from "./components/SummaryByCss";
 
 const AppContainer = styled.div`

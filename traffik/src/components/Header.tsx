@@ -25,11 +25,9 @@ const HeaderMenuItem = styled.li`
 export default function Header() {
     return (
         <HeaderContainer>
-            <HeaderLogo>Here Header Logo</HeaderLogo>
+            <HeaderLogo>Traffik</HeaderLogo>
             <HeaderMenu>
-                <HeaderMenuItem>Item1</HeaderMenuItem>
-                <HeaderMenuItem>Item2</HeaderMenuItem>
-                <HeaderMenuItem>Item3</HeaderMenuItem>
+                <HeaderMenuItem>About</HeaderMenuItem>
             </HeaderMenu>
         </HeaderContainer>
     )
