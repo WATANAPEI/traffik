@@ -26,7 +26,8 @@ export default function Summary() {
             <Arrow x={300} y={210} deg={-135} dataType="B2"/>
             <Arrow x={200} y={310} deg={45} dataType="A1"/>
             <Arrow x={310} y={310} deg={-46} dataType="A2"/>
-            <Hexagon />
+            <Arrow x={500} y={250} deg={90} dataType="B3"/>
+            <Hexagon x={590} y={200}/>
 
         </SummaryContainer>
     );
