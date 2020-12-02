@@ -10,11 +10,6 @@ type GraphPropType = {
     ioType: string
 }
 
-// type dataType = {
-//     time: string[]
-//     value: number[]
-//     description?: string
-// }
 
 const GraphPanel = (props: GraphPropType) => {
 

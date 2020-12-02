@@ -3,12 +3,6 @@ import {ReactComponent as Head} from "../svg/arrowhead.svg";
 import styled from "styled-components";
 import Modal from "react-modal";
 import GraphPanel from "./TrafficGraph";
-//import ReactTooltip from "react-tooltip";
-
-// const StyledTooltip = styled(ReactTooltip)`
-//     max-width: 100px;
-//     white-space: normal;
-// `
 
 const ArrowHeadStyle = styled(Head)`
     cursor: pointer;
@@ -43,10 +37,6 @@ export function ArrowHead(prop: types) {
     function closeModal() {
         setIsOpen(false);
     }
-
-    // const Tooltip = ({ ...props }) => (
-    //     <ReactTooltip effect="solid" place="top" {...props} />
-    // )
 
     return (
         <div>
