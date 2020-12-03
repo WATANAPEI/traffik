@@ -1,4 +1,5 @@
 import React from "react";
+import Popup from "reactjs-popup";
 import styled from "styled-components";
 
 type parms = {
@@ -6,9 +7,30 @@ type parms = {
     y: number
     r?: number
     color?: string
-    text?: string
+    circleText?: string
+    popupText?: string
 }
-const CircleDiv = styled.div<{r?: number, color?: string}>`
+
+const StyledPopup = styled(Popup)`
+    &-content {
+        padding: 10px;
+        background-color: #FF9872;
+        border: 2px solid black;
+        border-radius: 5px;
+        white-space: pre-wrap;
+    }
+
+`
+
+const CircleDiv = styled.div<{
+    x: number,
+    y: number,
+    r?: number,
+    color?: string
+}>`
+    position: absolute;
+    left: ${({x}) => x}px;
+    top: ${({y}) => y}px;
     width: ${({r}) => r ? r: 100}px;
     height: ${({r}) => r ? r: 100}px;
     border-radius: 50%;
@@ -19,18 +41,19 @@ const CircleDiv = styled.div<{r?: number, color?: string}>`
     align-items: center;
 `;
 
-const CircleContainer = styled.div<{x: number, y: number}>`
-    position: absolute;
-    left: ${({x}) => x}px;
-    top: ${({y}) => y}px;
-`;
-
 
 export default function Circle({...props}: parms) {
     return (
-        <CircleContainer x={props.x} y={props.y}>
-            <CircleDiv r={props?.r} color={props.color}>{props.text}</CircleDiv>
-        </CircleContainer>
+        <StyledPopup
+            trigger= {
+                <CircleDiv x={props.x} y={props.y} r={props?.r} color={props.color}>{props.circleText}</CircleDiv>
+            }
+            position={['top center', 'bottom right', 'bottom left']}
+            arrow={false}
+            offsetY={5}
+            >
+                {props.popupText}
+            </StyledPopup>
     )
 
 }

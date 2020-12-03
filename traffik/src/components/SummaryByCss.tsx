@@ -15,11 +15,24 @@ const SummaryContainer = styled.div`
 `;
 
 export default function Summary() {
+    const descDomestic = "B3: 国外で交換されるトラヒック";
+    const descISP = `協力ISP9社
+     - (株)インターネットイニシアチブ
+     - NTTコミュニケーションズ(株)
+     - (株)NTTぷらら
+     - (株)オプテージ
+     - KDDI(株)
+     - (株)ジュピターテレコム
+     - ソフトバンク(株)
+     - ニフティ(株)
+     - ビッグローブ(株)`;
     return (
         <SummaryContainer>
-            <Circle x={50} y={50} r={100} text="国内" color="#FFFF88"/>
-            <Circle x={230} y={220} r={140} text="ISP" color="#CCCCFF"/>
-            <Circle x={450} y={50} r={100} text="国外" color="#FFAD90"/>
+            <Circle x={50} y={50} r={100} circleText="国内" color="#FFFF88"
+            popupText={descDomestic} />
+            <Circle x={230} y={220} r={140} circleText="ISP" color="#CCCCFF"
+            popupText={descISP}/>
+            <Circle x={450} y={50} r={100} circleText="国外" color="#FFAD90"/>
             <Picture url="a1.png" x={50} y={450}/>
             <Picture url="a2.png" x={430} y={450}/>
             <Arrow x={190} y={215} deg={135} dataType="B3"/>

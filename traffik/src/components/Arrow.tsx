@@ -16,6 +16,8 @@ const ArrowBarStyle = styled.svg<{text: string}>`
     top: 45px;
     background-image: url(./arrowbar_${({text}) => text}.svg);
     background-repeat: no-repeat;
+    width: 40px;
+    height: 90px;
 `
 
 const ArrowContainer = styled.div<{x: number, y: number, deg: number}>`
