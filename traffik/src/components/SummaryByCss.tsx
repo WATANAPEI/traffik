@@ -15,7 +15,10 @@ const SummaryContainer = styled.div`
 `;
 
 export default function Summary() {
-    const descDomestic = "B3: 国外で交換されるトラヒック";
+    const descDomestic = `B3: 国外で交換されるトラヒック
+     - プライベート・ピアリング
+     - トランジット
+     - 国外IXにおけるパブリック・ピアリングなどにより交換されるトラヒック`;
     const descISP = `協力ISP9社
      - (株)インターネットイニシアチブ
      - NTTコミュニケーションズ(株)

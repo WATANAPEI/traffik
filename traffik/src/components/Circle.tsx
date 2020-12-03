@@ -14,9 +14,9 @@ type parms = {
 const StyledPopup = styled(Popup)`
     &-content {
         padding: 10px;
-        background-color: #FF9872;
+        background-color: #EEEEEE;
         border: 2px solid black;
-        border-radius: 5px;
+        border-radius: 9px;
         white-space: pre-wrap;
     }
 
