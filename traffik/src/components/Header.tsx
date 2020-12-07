@@ -5,6 +5,9 @@ const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: baseline;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    margin: 10px;
 `;
 
 const HeaderLogo = styled.header`

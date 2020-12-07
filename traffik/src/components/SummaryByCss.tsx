@@ -9,10 +9,10 @@ const SummaryContainer = styled.div`
     width: 800px;
     height: 600px;
     margin: 10px auto;
-    background-color: #ccc;
     padding: 10px;
     position: relative;
 `;
+
 
 export default function Summary() {
     const descDomestic = `B3: 国外で交換されるトラヒック
