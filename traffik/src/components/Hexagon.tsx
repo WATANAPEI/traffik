@@ -1,9 +1,11 @@
 import React from "react";
+import { StyledPopup } from "./Popup";
 import styled from "styled-components";
 
 type props = {
     x: number
     y: number
+    popupText?: string
 }
 
 const HexagonContainer = styled.svg<{x: number, y: number}>`
@@ -17,8 +19,17 @@ const HexagonContainer = styled.svg<{x: number, y: number}>`
 
 export default function Hexagon({...prop}: props) {
     return (
-        <HexagonContainer x={prop.x} y={prop.y}>
-            国内主要IX
-        </HexagonContainer>
+        <StyledPopup
+            trigger = {
+                <HexagonContainer x={prop.x} y={prop.y}>
+                    国内主要IX
+                </HexagonContainer>
+            }
+            position={['top center', 'bottom right', 'bottom left']}
+            arrow={false}
+            offsetY={5}
+            >
+                {prop.popupText}
+                </StyledPopup>
     );
 }

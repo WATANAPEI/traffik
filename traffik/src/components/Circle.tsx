@@ -1,5 +1,5 @@
 import React from "react";
-import Popup from "reactjs-popup";
+import { StyledPopup } from "./Popup";
 import styled from "styled-components";
 
 type parms = {
@@ -10,17 +10,6 @@ type parms = {
     circleText?: string
     popupText?: string
 }
-
-const StyledPopup = styled(Popup)`
-    &-content {
-        padding: 10px;
-        background-color: #EEEEEE;
-        border: 2px solid black;
-        border-radius: 9px;
-        white-space: pre-wrap;
-    }
-
-`
 
 const CircleDiv = styled.div<{
     x: number,

@@ -1,11 +1,15 @@
 import React from "react";
+import { StyledPopup } from "./Popup";
 import styled from "styled-components";
 
 type parms = {
     url: string
     x: number
     y: number
+    popupText?: string
 }
+
+
 
 const PictureContainer = styled.div<{url: string, x: number, y: number}>`
     background-image: url("${({url}) => url}");
@@ -21,7 +25,17 @@ const PictureContainer = styled.div<{url: string, x: number, y: number}>`
 
 export default function Picture({...props}: parms) {
     return (
-            <PictureContainer url={props.url} x={props.x} y={props.y}/>
+        <StyledPopup
+            trigger = {
+                <PictureContainer url={props.url} x={props.x} y={props.y}/>
+            }
+            position={['top center', 'bottom right', 'bottom left']}
+            arrow={false}
+            offsetY={5}
+            >
+                {props.popupText}
+            </StyledPopup>
+
     );
 
 }
