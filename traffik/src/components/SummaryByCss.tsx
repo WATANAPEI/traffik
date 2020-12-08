@@ -4,6 +4,7 @@ import Circle from "./Circle";
 import Picture from "./Picture";
 import Arrow from "./Arrow";
 import Hexagon from "./Hexagon";
+import Border from "./Border";
 
 const SummaryContainer = styled.div`
     width: 800px;
@@ -12,6 +13,7 @@ const SummaryContainer = styled.div`
     padding: 10px;
     position: relative;
 `;
+
 
 
 export default function Summary() {
@@ -51,6 +53,8 @@ export default function Summary() {
     がそれぞれ運営するIX`;
     return (
         <SummaryContainer>
+            <Border x={0} y={0} />
+            <Border x={0} y={400} />
             <Circle x={50} y={50} r={100} circleText="国外" color="#FFFF88"
             popupText={descDomestic} />
             <Circle x={230} y={220} r={140} circleText="ISP" color="#CCCCFF"

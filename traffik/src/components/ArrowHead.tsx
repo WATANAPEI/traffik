@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {ReactComponent as Head} from "../svg/arrowhead.svg";
 import styled from "styled-components";
-import Modal from "react-modal";
+import _Modal from "react-modal";
 import GraphPanel from "./TrafficGraph";
 
 const ArrowHeadStyle = styled(Head)`
@@ -16,6 +16,15 @@ const ArrowTailStyle = styled(Head)`
     top: ${100+30}px;
 `
 
+const Modal = styled(_Modal)`
+    width: 1300px;
+    height: 600px;
+    background-color: white;
+    border: 1px black solid;
+    margin: 50px auto;
+    padding: 30px;
+`;
+
 type HeadType = "head"|"tail";
 
 type types = {
@@ -24,7 +33,7 @@ type types = {
     ioType: string
 };
 
-Modal.setAppElement("#root");
+//Modal.setAppElement("#root");
 
 export function ArrowHead(prop: types) {
     const [modalIsOpen, setIsOpen] = useState(false);

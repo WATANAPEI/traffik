@@ -11,7 +11,6 @@ const HeaderDescription = styled.p`
     text-align: center;
     margin: 0;
     font-size: 1.3em;
-    text-decoration: underline;
 `;
 
 export default function App(): JSX.Element {
