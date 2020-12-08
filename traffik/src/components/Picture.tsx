@@ -32,6 +32,7 @@ export default function Picture({...props}: parms) {
             position={['top center', 'bottom right', 'bottom left']}
             arrow={false}
             offsetY={5}
+            on={["hover", "focus"]}
             >
                 {props.popupText}
             </StyledPopup>

@@ -14,6 +14,7 @@ const HexagonContainer = styled.svg<{x: number, y: number}>`
     background-repeat: no-repeat;
     left: ${({x}) => x}px;
     top: ${({y}) => y }px;
+    width: 150px;
 `;
 
 
@@ -28,6 +29,7 @@ export default function Hexagon({...prop}: props) {
             position={['top center', 'bottom right', 'bottom left']}
             arrow={false}
             offsetY={5}
+            on={["hover", "focus"]}
             >
                 {prop.popupText}
                 </StyledPopup>
