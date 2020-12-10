@@ -5,6 +5,7 @@ import Picture from "./Picture";
 import Arrow from "./Arrow";
 import Hexagon from "./Hexagon";
 import Border from "./Border";
+import Text from "./Text";
 
 const SummaryContainer = styled.div`
     width: 800px;
@@ -13,8 +14,6 @@ const SummaryContainer = styled.div`
     padding: 10px;
     position: relative;
 `;
-
-
 
 export default function Summary() {
     const descDomestic = `B3: 国外で交換されるトラヒック
@@ -67,8 +66,11 @@ export default function Summary() {
             <Arrow x={300} y={210} deg={-135} dataType="B2"/>
             <Arrow x={200} y={310} deg={45} dataType="A1"/>
             <Arrow x={310} y={310} deg={-46} dataType="A2"/>
-            <Arrow x={380} y={250} deg={-90} dataType="B1"/>
-            <Hexagon x={590} y={200} popupText={descIX}/>
+            <Arrow x={430} y={250} deg={-90} dataType="B1"/>
+            <Hexagon x={650} y={200} popupText={descIX}/>
+            <Text x={0} y={10} text="B  交換されるトラヒック" />
+            <Text x={0} y={330} text="A  契約者別トラヒック" />
+            <Text x={600} y={130} text="C  国内主要IXにおけるトラヒック" />
 
         </SummaryContainer>
     );
